@@ -20,15 +20,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private ConvertFromPrincipal principalConverter;
-    @GetMapping("/registration")
-    public String registration(){
-        return "registration";
-    }
 
-    @PostMapping("/registration")
-    public String crateUser(MyUser user, Model model){
-        return userService.createUser(user, model);
-    }
     @PreAuthorize("hasAnyAuthority('USER')")
     @GetMapping("/active-orders/{id}")
     public String getUserActiveOrders(@PathVariable Integer id, Model model){

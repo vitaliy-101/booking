@@ -26,7 +26,6 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles("USER");
         userRepository.save(user);
-
         return "redirect:/login";
     }
     public MyUser findUserByEmail(String email){

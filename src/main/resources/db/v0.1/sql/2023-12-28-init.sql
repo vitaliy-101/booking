@@ -7,7 +7,8 @@ create table if not exists `user`
     user_name VARCHAR(100) NOT NULL,
     roles VARCHAR(100),
     password VARCHAR(100) NOT NULL,
-    CONSTRAINT pk_user primary key (id)
+    CONSTRAINT pk_user primary key (id),
+    CONSTRAINT uq_user_email unique (email)
 );
 create table if not exists orders
 (
