@@ -7,5 +7,4 @@ import lombok.Setter;
 @Setter
 public class OrderBaseDto {
     private String title;
-    private Integer price;
 }

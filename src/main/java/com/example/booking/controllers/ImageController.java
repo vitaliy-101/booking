@@ -40,7 +40,9 @@ public class ImageController {
     }
     @PostMapping("/image/create/{id}")
     public String createImage(@PathVariable Integer id, MultipartFile file) throws IOException {
-        imageService.createImage(converter.convertFromFile(id, file));
+        if (!file.isEmpty()){
+            imageService.createImage(converter.convertFromFile(id, file));
+        }
         return "redirect:/";
     }
 

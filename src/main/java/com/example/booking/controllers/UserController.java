@@ -28,9 +28,4 @@ public class UserController {
         return "active-orders";
     }
 
-
-
-
-
-
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 public class OrderDto extends OrderBaseDto {
     private Integer id;
+    private String price;
     private String description;
     private Double duration;
     private List<Image> images;

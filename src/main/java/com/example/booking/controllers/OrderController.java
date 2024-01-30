@@ -32,27 +32,27 @@ public class OrderController {
 
     @GetMapping("/")
     public String getPageOrders(Principal principal, Model model){
-        model.addAttribute("orders", orderService.getAllOrders());
+        model.addAttribute("orders", dtoConverter.simpleConvert(orderService.getAllOrders(), OrderDto.class));
         model.addAttribute("user", converter.convertFromPrincipal(principal));
         return "orders";
     }
 
     @GetMapping("/order/{id}")
     public String getOrderInfo(@PathVariable Integer id, Model model){
-        model.addAttribute("order", orderService.getOrderById(id));
+        model.addAttribute("order", dtoConverter.simpleConvert(orderService.getOrderById(id), OrderDto.class));
         return "order-info";
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     @GetMapping("/admin-orders")
     public String getAdminPageOrders(Principal principal, Model model){
-        model.addAttribute("orders", orderService.getAllOrders());
+        model.addAttribute("orders", dtoConverter.simpleConvert(orderService.getAllOrders(), OrderDto.class));
         return "admin-orders";
     }
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     @GetMapping("/admin-order/{id}")
     public String getAdminOrderInfo(@PathVariable Integer id, Model model){
-        model.addAttribute("order", orderService.getOrderById(id));
+        model.addAttribute("order", dtoConverter.simpleConvert(orderService.getOrderById(id), OrderDto.class));
         return "admin-order-info";
     }
     @PreAuthorize("hasAnyAuthority('ADMIN')")

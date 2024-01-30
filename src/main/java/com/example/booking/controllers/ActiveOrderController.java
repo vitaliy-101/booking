@@ -47,6 +47,4 @@ public class ActiveOrderController {
         return "redirect:/";
     }
 
-
-
 }
